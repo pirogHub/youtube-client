@@ -1,7 +1,7 @@
 .icons {
-    @apply relative items-center;
+	@apply relative items-center;
 }
 
 .button {
-    @apply inline-flex mx-2 items-center text-3xl ml-6 opacity-75 transition-opacity hover: opacity-100;
+	@apply inline-flex mx-2 items-center text-3xl ml-6 opacity-75 transition-opacity hover:opacity-100;
 }

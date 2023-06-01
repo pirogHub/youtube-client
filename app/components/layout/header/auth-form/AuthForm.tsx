@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa'
 import Field from '@/components/ui/Field/Field'
 import Button from '@/components/ui/button/Button'
 
+import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import { useClosedClickOutside } from '@/hooks/useClosedClickOutside'
 
@@ -18,7 +19,8 @@ const AuthForm: FC = () => {
 
 	const [authType, setAuthType] = useState<'login' | 'register'>('login')
 
-	// const {isLoading} = useAuth()
+	const { login, register: registerAction } = useActions()
+	const { isLoading } = useAuth()
 
 	const {
 		register,
@@ -30,7 +32,9 @@ const AuthForm: FC = () => {
 
 	const onSubmit: SubmitHandler<IAuthFields> = data => {
 		if (authType === 'login') {
+			login(data)
 		} else {
+			registerAction(data)
 		}
 	}
 
@@ -68,13 +72,27 @@ const AuthForm: FC = () => {
 						error={errors.password}
 					/>
 					<div className={styles.loginBtnWrapper}>
-						<Button onClick={() => setAuthType('login')}>
+						<Button
+							type={isLoading ? 'button' : 'submit'}
+							disabled={isLoading}
+							onClick={
+								isLoading
+									? () => setAuthType('login')
+									: undefined
+							}
+						>
 							Войти
 						</Button>
 					</div>
 					<button
+						type={isLoading ? 'button' : 'submit'}
+						disabled={isLoading}
 						className={styles.register}
-						onClick={() => setAuthType('register')}
+						onClick={
+							isLoading
+								? () => setAuthType('register')
+								: undefined
+						}
 					>
 						Регистрация
 					</button>

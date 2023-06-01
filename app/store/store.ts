@@ -1,9 +1,10 @@
-import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from "redux-persist"
-import persistReducer from "redux-persist/es/persistReducer"
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore, persistReducer } from "redux-persist"
 import { rootReducer } from "./root-reducer"
 import { configureStore } from "@reduxjs/toolkit"
 
 import storage from 'redux-persist/lib/storage'
+import { rtkQueryErrorLogger } from "./middlewares/error.middleware"
+import { api } from "./api/api"
 
 //persistConig -- позволяет записывать данные в локалсторадж или куки сторадж
 const persistConfig = {
@@ -20,7 +21,7 @@ export const store = configureStore({
         serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]// чтобы не было конфликтов с RTKQuery
         }
-    })
+    }).concat(rtkQueryErrorLogger).concat(api.middleware)
 })
 
 export const persistor = persistStore(store) // чтобы записать в персист провайдер реакта
