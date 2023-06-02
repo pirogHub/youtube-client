@@ -1,8 +1,10 @@
 import { NextPageAuth } from 'provider/private-route.interface'
 import { FC } from 'react'
 
+import Studio from '@/components/pages/studio/Studio'
+
 const StudioPage: NextPageAuth = () => {
-	return <div>StudioPage</div>
+	return <Studio />
 }
 StudioPage.isAuthUser = true
 

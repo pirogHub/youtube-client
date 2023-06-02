@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 import { FC, useReducer } from 'react'
 import { BiEdit, BiTrash } from 'react-icons/bi'
 
+import UserAvatar from '../userAvatar/UserAvatar'
+
 import VideoDuration from './VideoDuration'
 import styles from './VideoItem.module.scss'
 import VideoStatistics from './VideoStatistics'
@@ -48,6 +50,7 @@ const VideoItem: FC<IVideoItem> = ({
 						width={185}
 						height={103}
 						layout='responsive'
+						priority
 					/>
 				)}
 				<VideoDuration duration={item.duration} />

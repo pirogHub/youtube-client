@@ -5,27 +5,15 @@ import { getVideoPath } from "api/getPaths"
 
 export const VideoService = {
     async getAll() {
-        try {
-            const { data } = await axiosNotAuth.get<IVideo[]>(getVideoPath())
-            return data
-        } catch (error) {
-            return []
-        }
+        return axiosNotAuth.get<IVideo[]>(getVideoPath())
+
     },
     async getVideoById(id: number) {
-        try {
-            const { data } = await axiosNotAuth.get<IVideo>(getVideoPath(`by-id/${id}`))
-            return data
-        } catch (error) {
-            return null
-        }
+        return axiosNotAuth.get<IVideo>(getVideoPath(`by-id/${id}`))
+
     },
     async getMostPopular() {
-        try {
-            const { data } = await axiosNotAuth.get<IVideo[]>(getVideoPath("most-popular"))
-            return data
-        } catch (error) {
-            return null
-        }
+        return axiosNotAuth.get<IVideo[]>(getVideoPath("most-popular"))
+
     },
 }

@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { BiSearchAlt } from 'react-icons/bi'
 
+import VideoItem from '@/components/ui/video-item/VideoItem'
+
 import { useSearch } from '@/hooks/useSearch'
 
 import styles from './Search.module.scss'
