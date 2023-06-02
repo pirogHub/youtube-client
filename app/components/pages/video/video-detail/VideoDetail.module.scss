@@ -44,7 +44,9 @@
                 background-color: #353340;
 
                 &:hover {
-                    @apply bg-gray-800;
+                    @apply bg-primary;
+
+                    svg {}
                 }
             }
         }

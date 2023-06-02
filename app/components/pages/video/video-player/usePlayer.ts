@@ -57,6 +57,11 @@ export const usePlayer = () => {
         const updateProgress = () => {
             setCurrentTime(video.currentTime)
             setProgress((video.currentTime / videoTime) * 100)
+
+
+            if (isPlaying && video.currentTime >= videoTime) {
+                setIsPlaying(false)
+            }
         }
 
         video.addEventListener('timeupdate', updateProgress)
@@ -93,6 +98,8 @@ export const usePlayer = () => {
             return () => video.removeEventListener('keydown', handleKeyDown)
         }
     }, [toggleVideo, videoRef.current])
+
+
 
     return {
         videoRef,

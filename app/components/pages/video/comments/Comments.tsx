@@ -25,7 +25,7 @@ const Comments: FC<{ comments: IComment[]; videoId: number }> = ({
 					))}
 				</div>
 			) : (
-				<p>Комментариев не найдено!</p>
+				<p>Комментариев пока нет!</p>
 			)}
 
 			<div className={styles.bottomForm}>

@@ -1,0 +1,38 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-inline: 20px;
+    left: 0;
+    right: 0;
+    @apply flex justify-between;
+
+    .status {
+        @apply flex justify-center items-center text-center gap-2 text-lg text-gray-500;
+
+        svg {
+            @apply text-3xl;
+        }
+
+
+
+        .upload-icon {}
+
+        .check-icon {}
+    }
+
+    .icons-uploaded {
+
+
+        .upload-icon {
+            @apply text-primary;
+        }
+
+        .check-icon {
+            @apply text-primary;
+        }
+    }
+
+
+}

@@ -16,7 +16,7 @@ const VideoStatistics: FC<IVideoStatistics> = ({ views, createdAt }) => {
 	return (
 		<div className={styles.number_info}>
 			<div className={styles.views}>
-				{views ? formatNumberToK(views) : '?'} просмотров
+				{views ? formatNumberToK(views) : '0'} просмотров
 			</div>
 			{!!createdAt && (
 				<>

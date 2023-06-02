@@ -32,7 +32,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	}
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async props => {
+	console.log('props', props)
+	const { params } = props
+
 	try {
 		const { data: channel } = await UserService.getUserById(
 			Number(params?.id)

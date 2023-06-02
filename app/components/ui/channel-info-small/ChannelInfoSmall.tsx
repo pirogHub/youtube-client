@@ -18,7 +18,7 @@ const ChannelInfoSmall: FC<{ channel: IUser; message?: string }> = ({
 
 			<div>
 				<div className={styles.name}>{channel.name}</div>
-				<div className={styles.subsribers_count}>
+				<div className={styles.subscribers_count}>
 					{!!message && message}
 					{formatNumberToK(channel.subscribersCount) + ' subscribers'}
 				</div>

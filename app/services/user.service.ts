@@ -9,6 +9,7 @@ export const UserService = {
 
     },
     async getUserById(id: number) {
+
         return axiosNotAuth.get<IUser>(getUsersPath(`by-id/${id}`))
     }
 }

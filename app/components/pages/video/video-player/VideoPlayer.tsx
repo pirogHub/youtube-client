@@ -26,11 +26,11 @@ const VideoPlayer: FC<{ videoPath: string }> = ({ videoPath }) => {
 					{status.isPlaying ? <IoMdPause /> : <IoMdPlay />}
 				</button>
 
-				<div className={styles.progressBarWrapepr}>
+				<div className={styles.progressBarWrapper}>
 					<div
 						className={styles.progressBar}
 						style={{
-							width: `${status.progress}`
+							width: `${status.progress}%`
 						}}
 					/>
 				</div>

@@ -2,7 +2,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC, useReducer } from 'react'
+import { FC, useState } from 'react'
 import { BiEdit, BiTrash } from 'react-icons/bi'
 
 import UserAvatar from '../userAvatar/UserAvatar'
@@ -19,31 +19,48 @@ const VideoItem: FC<IVideoItem> = ({
 	item
 }) => {
 	const { push } = useRouter()
+	const [isMouseOnEdit, setIsMouseOnEdit] = useState(false)
 	return (
-		<div
-			className={cn(styles.video_item, {
+		<Link
+			href={`/v/${item.id}`}
+			className={cn(styles.video_item, 'z-0', {
 				[styles.small]: isSmall
 			})}
 		>
-			{!!removeHandler && (
-				<button
-					className={'absolute bottom-3 right-3 z-10'}
-					onClick={() => removeHandler(item.id)}
-				>
-					<BiTrash className={'text-lg text-red-700'} />
-				</button>
-			)}
-			{isUpdateLink && (
-				<button
-					className='absolute bottom-3 right-11 z-10'
-					onClick={() => push(`/video/edit/${item.id}`)}
-				>
-					<BiEdit className='text-lg bottom-3 right-11 z-10' />
-				</button>
-			)}
+			{isMouseOnEdit && <div className={styles.shadower} />}
+			<div
+				onMouseEnter={() => setIsMouseOnEdit(true)}
+				onMouseLeave={() => setIsMouseOnEdit(false)}
+				className={styles.actionsWrapper}
+			>
+				{!!removeHandler && (
+					<button
+						className={'z-10'}
+						onClick={e => {
+							e.preventDefault()
+							e.stopPropagation()
+							removeHandler(item.id)
+						}}
+					>
+						<BiTrash className={'text-lg text-red-700'} />
+					</button>
+				)}
+				{isUpdateLink && (
+					<button
+						className='z-10'
+						onClick={e => {
+							e.preventDefault()
+							e.stopPropagation()
+							push(`/video/edit/${item.id}`)
+						}}
+					>
+						<BiEdit className='text-lg bottom-3 text-cyan-800' />
+					</button>
+				)}
+			</div>
 
 			<div className={styles.thumbnail}>
-				{item.thumbnailPath && (
+				{item.thumbnailPath ? (
 					<Image
 						src={item.thumbnailPath}
 						alt={item.name}
@@ -52,6 +69,13 @@ const VideoItem: FC<IVideoItem> = ({
 						layout='responsive'
 						priority
 					/>
+				) : (
+					<div
+						style={{ width: '100%', height: '100%' }}
+						className='flex justify-center items-center text-center m-auto'
+					>
+						Превью нет
+					</div>
 				)}
 				<VideoDuration duration={item.duration} />
 				{item?.user?.avatarPath && (
@@ -74,7 +98,7 @@ const VideoItem: FC<IVideoItem> = ({
 					createdAt={!isSmall ? item.createdAt : undefined}
 				/>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

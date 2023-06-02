@@ -57,7 +57,9 @@ const VideoDetail: FC<{ video: IVideo; channel: IUser }> = ({
 					</div>
 					<div>
 						<RiHeart2Fill />
-						<span>{formatNumberToK(video.views || 0)} лайков</span>
+						<span>
+							{formatNumberToK(video?.likes?.length || 0)} лайков
+						</span>
 					</div>
 					<div>
 						<HiCalendar />

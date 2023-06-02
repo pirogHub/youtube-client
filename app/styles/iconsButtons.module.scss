@@ -3,5 +3,25 @@
 }
 
 .button {
-	@apply inline-flex mx-2 items-center text-3xl ml-6 opacity-75 transition-opacity hover:opacity-100;
+	@apply relative inline-flex mx-2 items-center text-3xl ml-6 opacity-75 transition-opacity hover:opacity-100;
+
+	.buttonWarning {
+		position: absolute;
+		display: none;
+		right: 20px;
+		top: 20px;
+		z-index: 10;
+		border: 1px solid rgba(38, 44, 38, 0.334);
+		color: rgb(184, 119, 21);
+		background-color: #353340;
+		padding: 5px;
+		font-size: 1.4rem;
+		border-radius: 10px;
+	}
+
+	&:hover {
+		.buttonWarning {
+			display: block;
+		}
+	}
 }

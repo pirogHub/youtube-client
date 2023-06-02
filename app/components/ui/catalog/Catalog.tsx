@@ -15,12 +15,12 @@ interface ICatalog {
 
 const Catalog: FC<ICatalog> = ({ newVideos, isUpdateLink, removeHandler }) => {
 	return (
-		<div className={styles.recommended}>
+		<div className={styles.catalog}>
 			<div className={styles.top_block}>
 				<Heading title={removeHandler ? 'Мои видео' : 'Рекомендации'} />
 			</div>
 
-			<div className={styles.catalog}>
+			<div className={styles.recommended}>
 				{newVideos.map(v => (
 					<VideoItem
 						item={v}

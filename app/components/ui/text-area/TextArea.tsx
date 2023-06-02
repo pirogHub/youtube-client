@@ -6,7 +6,7 @@ import { ITextArea } from './text-area.interface'
 const TextArea = forwardRef<HTMLTextAreaElement, ITextArea>(
 	({ error, style, ...rest }, ref) => {
 		return (
-			<div className={styles.input} style={style}>
+			<div className={styles.editor} style={style}>
 				<textarea ref={ref} {...rest} />
 				{error && <div className={styles.error}>{error.message}</div>}
 			</div>

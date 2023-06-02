@@ -12,6 +12,10 @@
         }
     }
 
+    &.withoutborder {
+        border: 2px solid transparent;
+    }
+
     >span {
         @apply relative rounded-full;
     }

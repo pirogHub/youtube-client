@@ -3,7 +3,7 @@ import { HiUpload } from 'react-icons/hi'
 
 import { videoApi } from '@/store/api/video.api'
 
-import styles from './UploadVideo.module.scss'
+import UploadModal from './UploadModal'
 import stylesIconBtn from '@/styles/iconsButtons.module.scss'
 
 const UploadVideo: FC = () => {
@@ -26,8 +26,16 @@ const UploadVideo: FC = () => {
 				className={stylesIconBtn.button}
 				disabled={isLoading}
 			>
-				<HiUpload />
+				<HiUpload className='text-lime-400 hover:text-primary' />
+				<div className={stylesIconBtn.buttonWarning}>
+					Загрузить видео
+				</div>
 			</button>
+			<UploadModal
+				isOpen={isOpen}
+				setIsOpen={setIsOpen}
+				videoId={videoId}
+			/>
 		</>
 	)
 }

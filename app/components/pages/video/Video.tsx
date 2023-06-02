@@ -31,6 +31,10 @@ const Video: FC = () => {
 		if (query.id) updateViews(Number(query.id))
 	}, [query.id])
 
+	useEffect(() => {
+		const tmp = video
+	}, [video])
+
 	return (
 		<Layout title={video.name}>
 			<div className={styles.layout}>

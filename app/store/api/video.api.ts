@@ -9,7 +9,11 @@ export const videoApi = api.injectEndpoints({
             query: (searchTerm) => ({ url: getVideoPath(), params: { searchTerm } }),
         }),
         getVideoById: builder.query<IVideo, number>({
-            query: (videoId) => ({ url: getVideoPath(), params: { videoId } }),
+            query: (videoId) => {
+                console.log("give me one");
+
+                return { url: getVideoPath(`by-id/${videoId}`) }
+            },
             providesTags: (result, error, id) => [{ type: "Video", id }] // записываем полученное в тэг Video
         }),
         getPrivateVideo: builder.query<IVideo, number>({

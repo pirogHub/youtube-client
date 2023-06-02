@@ -1,4 +1,4 @@
-.recommended {
+.catalog {
     >.top_block {
         @apply flex items-center justify-between mb-6;
 
@@ -7,9 +7,15 @@
         }
     }
 
-    >.catalog {
-        @apply mb-2.5;
-        // flex: 1 1 calc((100% / 4) - 2rem);
-        width: 23%;
+    >.recommended {
+        @apply flex flex-wrap justify-between gap-3;
+
+        >* {
+
+            // @apply m-2.5;
+            flex: 1 1 calc((100% / 4) - 2rem);
+            max-width: 23%;
+
+        }
     }
 }
