@@ -24,6 +24,7 @@
 
 .video_item {
 	border: 1px solid transparent;
+	max-width: 200px;
 
 	&:hover {
 		border: 1px solid #ffffff37;
@@ -92,6 +93,7 @@
 }
 
 .large_item {
+	max-width: none;
 
 	.information {
 		@apply z-10 absolute p-7;

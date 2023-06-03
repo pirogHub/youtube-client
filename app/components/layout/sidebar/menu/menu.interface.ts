@@ -6,4 +6,5 @@ export interface IMenuItem {
     icon?: IconType
     image?: string
     isAuthBlock?: boolean
+
 }

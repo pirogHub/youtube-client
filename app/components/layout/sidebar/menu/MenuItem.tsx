@@ -3,12 +3,19 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
+import UserAvatar from '@/components/ui/userAvatar/UserAvatar'
+
 import { useAuth } from '@/hooks/useAuth'
+
+import { IUser } from '@/types/user.interface'
 
 import styles from './Menu.module.scss'
 import { IMenuItem } from './menu.interface'
 
-const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
+const MenuItem: FC<{ item: IMenuItem; isWhenNoImage?: boolean }> = ({
+	item,
+	isWhenNoImage
+}) => {
 	const { user } = useAuth()
 	const { asPath } = useRouter()
 	if (item.link === '/my-channel') {
@@ -32,6 +39,7 @@ const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
 							alt={item.title}
 						/>
 					)}
+					{isWhenNoImage && <UserAvatar user={{} as IUser} />}
 				</span>
 				<b>{item.title}</b>
 			</Link>

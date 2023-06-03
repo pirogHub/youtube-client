@@ -3,9 +3,13 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { GoChevronDown, GoChevronUp } from 'react-icons/go'
 
+import UserAvatar from '@/components/ui/userAvatar/UserAvatar'
+
 import { useActions } from '@/hooks/useActions'
 import { useAuth } from '@/hooks/useAuth'
 import { useClosedClickOutside } from '@/hooks/useClosedClickOutside'
+
+import { IUser } from '@/types/user.interface'
 
 import { api } from '@/store/api/api'
 
@@ -26,13 +30,14 @@ const ProfileMenu: FC = () => {
 	return (
 		<div ref={ref} className={styles.wrapper}>
 			<button onClick={() => setIsShow(!isShow)}>
-				<Image
+				{/* <Image
 					src={data?.avatarPath || ''}
 					alt={data?.name || ''}
 					width={40}
 					height={40}
 					priority
-				/>
+				/> */}
+				<UserAvatar user={data || ({} as IUser)} />
 				<span className={styles.name}>{data?.name}</span>
 				{isShow ? <GoChevronUp /> : <GoChevronDown />}
 			</button>

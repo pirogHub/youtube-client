@@ -19,7 +19,7 @@ export const menu: IMenuItem[] = [
         isAuthBlock: true
     },
     {
-        title: "Мои подписчики",
+        title: "Мои подписки",
         icon: HiCollection,
         link: "/subscribers"
     },

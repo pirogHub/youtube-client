@@ -10,6 +10,7 @@ const CommentItem: FC<{ comment: IComment }> = ({ comment }) => {
 	return (
 		<div className={styles.commentItem}>
 			<ChannelInfoSmall
+				isSmall
 				channel={comment.user}
 				message={comment.message}
 			/>

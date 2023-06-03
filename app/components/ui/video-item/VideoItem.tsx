@@ -28,36 +28,38 @@ const VideoItem: FC<IVideoItem> = ({
 			})}
 		>
 			{isMouseOnEdit && <div className={styles.shadower} />}
-			<div
-				onMouseEnter={() => setIsMouseOnEdit(true)}
-				onMouseLeave={() => setIsMouseOnEdit(false)}
-				className={styles.actionsWrapper}
-			>
-				{!!removeHandler && (
-					<button
-						className={'z-10'}
-						onClick={e => {
-							e.preventDefault()
-							e.stopPropagation()
-							removeHandler(item.id)
-						}}
-					>
-						<BiTrash className={'text-lg text-red-700'} />
-					</button>
-				)}
-				{isUpdateLink && (
-					<button
-						className='z-10'
-						onClick={e => {
-							e.preventDefault()
-							e.stopPropagation()
-							push(`/video/edit/${item.id}`)
-						}}
-					>
-						<BiEdit className='text-lg bottom-3 text-cyan-800' />
-					</button>
-				)}
-			</div>
+			{(!!removeHandler || !!isUpdateLink) && (
+				<div
+					onMouseEnter={() => setIsMouseOnEdit(true)}
+					onMouseLeave={() => setIsMouseOnEdit(false)}
+					className={styles.actionsWrapper}
+				>
+					{!!removeHandler && (
+						<button
+							className={'z-10'}
+							onClick={e => {
+								e.preventDefault()
+								e.stopPropagation()
+								removeHandler(item.id)
+							}}
+						>
+							<BiTrash className={'text-lg text-red-700'} />
+						</button>
+					)}
+					{isUpdateLink && (
+						<button
+							className='z-10'
+							onClick={e => {
+								e.preventDefault()
+								e.stopPropagation()
+								push(`/video/edit/${item.id}`)
+							}}
+						>
+							<BiEdit className='text-lg bottom-3 text-cyan-800' />
+						</button>
+					)}
+				</div>
+			)}
 
 			<div className={styles.thumbnail}>
 				{item.thumbnailPath ? (
@@ -78,11 +80,10 @@ const VideoItem: FC<IVideoItem> = ({
 					</div>
 				)}
 				<VideoDuration duration={item.duration} />
-				{item?.user?.avatarPath && (
-					<div className={'absolute right-3 -bottom-7'}>
-						<UserAvatar user={item.user} />
-					</div>
-				)}
+
+				<div className={'absolute right-3 -bottom-7'}>
+					<UserAvatar user={item.user} />
+				</div>
 			</div>
 
 			<div className={styles.information}>

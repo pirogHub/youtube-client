@@ -26,6 +26,7 @@ const Sidebar: FC = () => {
 
 			{user && (
 				<Menu
+					isWhenNoImage
 					title='Мои подписки'
 					items={
 						data?.subscriptions.map(({ toChannel }) => ({

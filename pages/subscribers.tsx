@@ -12,6 +12,7 @@ const SubscribtionsPage: NextPageAuth = () => {
 		<Layout title='Мои подписки'>
 			<Menu
 				title='Мои подписки'
+				isWhenNoImage
 				items={
 					data?.subscriptions.map(({ toChannel }) => ({
 						title: toChannel.name,

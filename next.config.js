@@ -7,7 +7,7 @@ const nextConfig = {
     APP_SERVER_URL: process.env.REACT_APP_SERVER_URL,
   },
   images: {
-    domains: ['localhost']
+    domains: ['localhost', process.env.REACT_APP_SERVER_DOMAIN]
   },
   async rewrites() {
     return [

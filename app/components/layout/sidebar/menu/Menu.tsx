@@ -9,15 +9,20 @@ import { IMenuItem } from './menu.interface'
 interface IMenu {
 	title: string
 	items: IMenuItem[]
+	isWhenNoImage?: boolean
 }
 
-const Menu: FC<IMenu> = ({ items, title }) => {
+const Menu: FC<IMenu> = ({ title, items, isWhenNoImage }) => {
 	return (
 		<nav className={styles.menu_sidebar}>
 			<h3>{title}</h3>
 			<ul>
 				{items.map(mi => (
-					<MenuItem item={mi} key={mi.link} />
+					<MenuItem
+						item={mi}
+						key={mi.link}
+						isWhenNoImage={isWhenNoImage}
+					/>
 				))}
 			</ul>
 			<Line />
