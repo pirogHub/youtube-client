@@ -26,6 +26,7 @@ const VideoInformation: FC<PropsWithChildren<IVideoInformation>> = ({
 				</div>
 			) : (
 				<Image
+				// loader={}
 					src={thumbnailPath}
 					width={344}
 					height={190}

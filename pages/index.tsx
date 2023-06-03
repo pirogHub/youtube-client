@@ -26,7 +26,8 @@ export const getStaticProps: GetStaticProps = async () => {
 					shuffle(
 						newVideos.filter(v => v.id !== popularVideos[0].id)
 					)[0] || ({} as IVideo)
-			} as IHome
+			} as IHome,
+			revalidate: 60
 		}
 	} catch (error) {
 		return {

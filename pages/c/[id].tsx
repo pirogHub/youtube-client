@@ -44,7 +44,8 @@ export const getStaticProps: GetStaticProps = async props => {
 		return {
 			props: {
 				channel
-			} as IChannel
+			} as IChannel,
+			revalidate: 60
 		}
 	} catch (error) {
 		return {
