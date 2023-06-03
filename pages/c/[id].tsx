@@ -33,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async props => {
-	console.log('props', props)
+	// console.log('props', props)
 	const { params } = props
 
 	try {

@@ -50,6 +50,12 @@
 		min-height: 150px;
 		height: 100%;
 
+		img {
+			width: auto;
+			height: 100%;
+			object-fit: cover;
+		}
+
 		>time {
 			@apply rounded-md absolute text-white flex items-center justify-center text-xs w-16 h-6 right-1.5 top-1.5;
 			background-color: rgba(0, 0, 0, 0.5);

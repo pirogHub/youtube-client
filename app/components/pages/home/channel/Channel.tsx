@@ -11,7 +11,7 @@ import styles from './Channel.module.scss'
 import { IChannel } from './channel.interface'
 
 const Channel: FC<IChannel> = ({ channel }) => {
-	if (!channel)
+	if (!channel.id)
 		return (
 			<Layout title='Видеохостинг'>
 				<div className={'mb-10 w-1/3'}>
@@ -26,7 +26,7 @@ const Channel: FC<IChannel> = ({ channel }) => {
 		)
 	return (
 		<Layout title={channel.name}>
-			<div className={'mb-10 w-1/3'}>
+			<div className={'mb-10'}>
 				<div className={'flex items-center gap-8'}>
 					<ChannelInfoSmall channel={channel} />
 					<SubscribeButton channelIdForSubscribe={channel.id} />

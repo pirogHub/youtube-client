@@ -66,9 +66,10 @@ const VideoItem: FC<IVideoItem> = ({
 					<Image
 						src={item.thumbnailPath}
 						alt={item.name}
-						width={185}
-						height={103}
-						layout='responsive'
+						// width={185}
+						// height={103}
+						// layout='responsive'
+						fill
 						priority
 					/>
 				) : (
