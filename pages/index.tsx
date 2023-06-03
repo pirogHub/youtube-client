@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 		return {
 			props: {
-				newVideos: [],
+				newVideos: newVideos || [],
 				topVideo: popularVideos[0] || ({} as IVideo),
 				randomVideo:
 					shuffle(
