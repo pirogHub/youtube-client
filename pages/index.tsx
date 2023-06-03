@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		return {
 			props: {
 				newVideos: [],
-				topVideo: popularVideos[0],
+				topVideo: popularVideos[0] || ({} as IVideo),
 				randomVideo:
 					shuffle(
 						newVideos.filter(v => v.id !== popularVideos[0].id)
