@@ -26,7 +26,10 @@ export const useUploadVideoForm = ({
 		setValue,
 		reset
 	} = useForm<IVideoDto>({
-		mode: 'onChange'
+		mode: 'onChange',
+		defaultValues: {
+			isPublic: true
+		}
 	})
 	const [updateVideo, { isSuccess, isError }] =
 		videoApi.useUpdateVideoMutation()

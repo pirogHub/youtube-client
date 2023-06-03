@@ -14,7 +14,7 @@
 
 
             .window {
-                @apply mx-auto shadow-black p-6 relative bg-gray-900 rounded-2xl text-white;
+                @apply flex justify-center items-center mx-auto shadow-black p-6 relative bg-gray-900 rounded-2xl text-white;
 
                 width: 1000px;
                 height: 610px;

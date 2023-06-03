@@ -28,6 +28,7 @@ const AddCommentFrom: FC<{ videoId: number }> = ({ videoId }) => {
 		writeComment({ ...data, videoId })
 			.unwrap()
 			.then(() => reset())
+		reset()
 	}
 
 	return (

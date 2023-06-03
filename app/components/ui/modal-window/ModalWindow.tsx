@@ -1,28 +1,21 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { FC, Fragment } from 'react'
+import { FC, Fragment, PropsWithChildren } from 'react'
 
-import { videoApi } from '@/store/api/video.api'
+import { IUploadModal } from '@/components/layout/header/upload-video/upload-video.interface'
 
-import styles from './UploadVideo.module.scss'
-import UploadVideoForm from './upload-video-form/UploadVideoForm'
-import { IUploadModal } from './upload-video.interface'
+import styles from './ModalWindow.module.scss'
 
-const UploadModal: FC<IUploadModal> = ({ isOpen, setIsOpen, videoId }) => {
-	const [removeVideo] = videoApi.useDeleteVideoMutation()
-
-	const handleCloseModal = () => {
-		setIsOpen(false)
-	}
+const ModalWindow: FC<PropsWithChildren<IUploadModal>> = ({
+	isOpen,
+	setIsOpen,
+	videoId,
+	children
+}) => {
+	const handleCloseModal = () => setIsOpen(false)
 
 	return (
 		<Transition show={isOpen} as={Fragment}>
-			<Dialog
-				onClose={() => {
-					removeVideo(videoId)
-					handleCloseModal()
-				}}
-				className={styles.modal}
-			>
+			<Dialog onClose={() => {}} className={styles.modal}>
 				<Transition.Child
 					as={Fragment}
 					enter='ease-out duration-300'
@@ -47,10 +40,7 @@ const UploadModal: FC<IUploadModal> = ({ isOpen, setIsOpen, videoId }) => {
 							leaveTo='opacity-0 scale-95'
 						>
 							<Dialog.Panel className={styles.window}>
-								<UploadVideoForm
-									videoId={videoId}
-									handleCloseModal={handleCloseModal}
-								/>
+								{children}
 							</Dialog.Panel>
 						</Transition.Child>
 					</div>
@@ -60,4 +50,4 @@ const UploadModal: FC<IUploadModal> = ({ isOpen, setIsOpen, videoId }) => {
 	)
 }
 
-export default UploadModal
+export default ModalWindow

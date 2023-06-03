@@ -12,7 +12,7 @@ const VideoPlayer: FC<{ videoPath: string }> = ({ videoPath }) => {
 		<div className={styles.wrapper}>
 			<video
 				ref={videoRef}
-				src={`${videoPath}#t=8`}
+				src={`${videoPath}#t=3`}
 				className={styles.player}
 				preload='metadata'
 				onClick={toggleVideo}

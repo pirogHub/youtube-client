@@ -20,6 +20,7 @@ const VideoItem: FC<IVideoItem> = ({
 }) => {
 	const { push } = useRouter()
 	const [isMouseOnEdit, setIsMouseOnEdit] = useState(false)
+
 	return (
 		<Link
 			href={`/v/${item.id}`}

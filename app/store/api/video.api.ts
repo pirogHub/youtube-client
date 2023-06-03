@@ -34,7 +34,8 @@ export const videoApi = api.injectEndpoints({
                 body: video
             }),
             invalidatesTags: (result, error, { id }) => [
-                { type: "Video", id }
+                { type: "Video", id },
+                { type: "Profile" }
             ]
         }),
         updateCountViews: builder.mutation<IVideo, number>({
@@ -56,8 +57,8 @@ export const videoApi = api.injectEndpoints({
                 url: getVideoPath(`${videoId}`),
                 method: "DELETE"
             }),
-            invalidatesTags: (result, error, id) => [
-                { type: "Video", id },
+            invalidatesTags: [
+                { type: "Video" },
                 { type: "Profile" }
             ]
         })
