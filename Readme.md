@@ -29,3 +29,9 @@ CreateApi, Видеоплеер, Сервис комментариев под в
 
 >Database:
 PostgreSQL
+
+
+![channel](channel.png)
+![main](main.png)
+![player](player.png)
+![video_download](video_download.png)
